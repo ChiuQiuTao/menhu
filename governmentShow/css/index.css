@@ -190,3 +190,16 @@ body{
 .bottom-con-item{
     line-height: 35px;
 }
+.cona{
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    font-size: 12px;
+    top: -20px;
+    right: 10px;
+    color: #fff;
+}
+.cona a{
+    color: #fff;
+
+}
