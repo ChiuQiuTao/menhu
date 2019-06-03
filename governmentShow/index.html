@@ -16,17 +16,18 @@
         </div>
         <form class="layui-form" action="">
         <div class="content">
-            <div class="cona">
-                    <a href="http://47.98.167.96:9804/src/login.html">跳转登录</a>
-            </div>
+            
             <div class="head">
                 <div class="head-lt">JLFZFDA</div>
                 <div class="head-rt">
-                    <div class='head-c'>吉林(中国-新加坡)食品区食品药品监督管理局保障体系综合监管平台</div>
-                    <div class='head-p'>Jilin Food Zone Food And Drug Administration Security System Integrated Supervision Platform</div>
+                    <div class='head-c'>吉林(中国-新加坡)食品区食品药品监督管理局门户网站</div>
+                    <div class='head-p'>Jilin Food Zone Food And Drug Administration Security System Integrated portal website</div>
                 </div>
             </div>
-
+            <div class="cona">
+                <!-- <a href="http://47.98.167.96:9804/src/login.html">跳转登录</a> -->
+                <div class="a">跳转登录</div>
+            </div>
             <div class="row">
                 <div class="row-lt">
                     <div class="row-lt1">
@@ -174,6 +175,8 @@
         
     </div>
     
+
+    
 </body>
 <script src="./js/jquery.min.js"></script>
 <script src="./public/dist/layui.js"></script>
@@ -198,8 +201,8 @@ var swiper2 = new Swiper('.swiper-container2', {
 
 });
 
-layui.use(['form'], function(){
-
+layui.use(['layer','form'], function(){
+    var layer = layui.layer;
     var links = document.querySelectorAll('.item-links-item');
     for(var i=0;i<links.length;i++){
         (function(i){
@@ -209,6 +212,26 @@ layui.use(['form'], function(){
             })
         })(i)
     }
+
+    document.querySelector('.cona .a').addEventListener('click',function(){
+        layer.open({
+            type: 1,
+            title:'请选择跳转系统',
+            skin: 'layui-layer-rim', //加上边框
+            area: ['285px', '240px'], //宽高
+            // closeBtn: 0,
+            content: '<div class="dialog-con"><div class="dialog-con-item"><div class="img"><img src="./images/icon01.png" alt=""></div><div class="title">监管登录</div></div><div class="dialog-con-item"><div class="img"><img src="./images/icon02.png" alt=""></div><div class="title">企业登录</div></div></div>'
+        });
+
+        var itemsHref = document.querySelectorAll('.dialog-con-item');
+        itemsHref[0].addEventListener('click',function(){
+            window.location.href='http://47.98.167.96:9801/src/login.html';
+        })
+        itemsHref[1].addEventListener('click',function(){
+            window.location.href='http://47.98.167.96:9804/src/login.html';
+        })
+    })
+    
 });
 
 
